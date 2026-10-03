@@ -1,0 +1,159 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Quill</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.0.1/css/all.min.css"
+        integrity="sha512-2SwdPD6INVrV/lHTZbO2nodKhrnDdJK9/kg2XD1r9uGqPo1cUbujc+IYdlYdEErWNu69gVcYgdxlmVmzTWnetw=="
+        crossorigin="anonymous" referrerpolicy="no-referrer" />
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Limelight&display=swap" rel="stylesheet">
+    <link rel="icon" type="image/png" sizes="32x32" href="feather-pointed-solid.png" />
+
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+
+    <header>
+        <h2> <i class="fa-solid fa-feather-pointed"></i>Quill</h2>
+        <div>
+            <div class="dropdown">
+                <button class="add-btn" id="dropdownBtn">
+                    <i class="fa-solid fa-plus"></i> New
+                </button>
+
+                <div class="dropdown-menu" id="dropdownMenu">
+                    <button onclick="openNoteDialog()">
+                        <i class="fa-solid fa-note-sticky"></i>
+                        New Note
+                    </button>
+
+                    <button onclick="openTo_doDialog()">
+                        <i class="fa-solid fa-list-check"></i>
+                        New To-Do
+                    </button>
+
+                    <button onclick="openProjectDialog()">
+                      <i class="fa-solid fa-folder-plus"></i>
+                       progress
+                    </button>
+
+
+                </div>
+            </div>
+            <button id="themebtn" class="them-btn"><i class="fa-regular fa-moon"></i></button>
+        </div>
+    </header>
+
+
+   <!-- Notes Container -->
+<main id="notesContainer" class="grid">
+</main>
+
+
+   <!-- //note -->
+    <dialog id="dolist-note">
+        <div class="dialog-conter">
+            <div class="dialog-header">
+                <h5 class="dialog-title" id="dialog-title-note">
+                    <i class="fa-solid fa-feather-pointed"></i> Add New Note
+                </h5>
+                <button class="close-btn" onclick="closeNoteDialog()">
+                    <i class="fa-solid fa-xmark"></i>
+                </button>
+            </div>
+
+            <form id="noteForm">
+                <div class="form-group">
+                    <label for="noteTitle" class="form-label">Title</label>
+                    <input type="text" id="noteTitle" class="form-input" placeholder="Enter note title..." required="">
+                </div>
+
+                <div class="form-group">
+                    <label for="noteContent" class="form-label">Content</label>
+                    <textarea id="noteContent" class="form-textarea" placeholder="Write your note here..."
+                        required=""></textarea>
+                </div>
+
+                <div class="dialog-actions">
+                    <button type="button" class="cancel-btn" onclick="closeNoteDialog()">
+                        <i class="fa-solid fa-xmark"></i> Cancel
+                    </button>
+
+                    <button type="submit" class="submit-btn">
+                        <i class="fa-solid fa-bookmark"></i> Save Note
+                    </button>
+                </div>
+            </form>
+        </div>
+    </dialog>
+
+ <!-- // todo -->
+
+    <dialog id="dolist-notet" class="">
+        <div class="dialog-conter">
+            <div class="dialog-header">
+                <h5 class="dialog-title" id="dialog-title-todo">
+                    <i class="fa-solid fa-feather-pointed"></i> Add New To-do
+                </h5>
+                <button class="close-btn" onclick="closeTo_doDialog()">
+                    <i class="fa-solid fa-xmark"></i>
+                </button>
+            </div>
+
+            <div class="stat-container">
+                <div class="detils">
+                    <h3>Keep it up</h3>
+
+                    <div class="progressC">
+                        <div id="progress" style="width: 0%;"></div>
+                    </div>
+                </div>
+
+                <div class="stats-number">
+                    <div id="number">0/0</div>
+                </div>
+            </div>
+
+            <div class="con_todo">
+                <form class="input-area">
+                    <input type="text" id="task-input" placeholder="Add a new task...">
+                    <button type="submit" id="add-task">
+                        <i class="fa-solid fa-feather-pointed"></i>
+                    </button>
+                </form>
+            </div>
+
+            <div class="todo-container" style="width: 50%;">
+                <ul id="task-list"></ul>
+                <img class="empty-todo" src="aloe vera-amico.svg" alt="empty" style="display: block;">
+            </div>
+        </div>
+    </dialog>
+
+
+        
+
+</div>
+
+</dialog> 
+
+
+
+
+    <script src="https://cdn.jsdelivr.net/npm/@tsparticles/confetti@4.3.3/tsparticles.confetti.bundle.min.js"></script> 
+    <script src="to-do.js"></script>
+    <script src="app.js" defer></script>
+    
+
+
+
+</body>
+
+</html>
